@@ -1,0 +1,67 @@
+/* Start Menu */
+#win_start {
+	position: fixed;
+	left: 3px;
+	bottom: 24px;
+	height: 226px;
+	width: 175px;
+	background-color: #C0C0C0;
+	border-right: 2px ridge black;
+	border-bottom: 2px ridge black;
+	border-top: 3px ridge white;
+	border-left: 3px ridge white;
+	display: none;
+	z-index: 99999;
+}
+#win_start_banner {
+	width: 21px;
+	height: 100%;
+	position: relative;
+	background-color: #999999;
+}
+#win_start_banner_img {
+	position: absolute;
+	bottom: 0px;
+}
+#win_start_tli_cont {
+	position: absolute;
+	left: 21px;
+	top: 0px;
+	height: 100%;
+	width: 154px;
+}
+.win_start_toplevel_item {
+	width: 100%;
+	height: 32px;
+	position: relative;
+}
+.win_start_toplevel_item:hover {
+	background-color: #000099;
+	color: white;
+}
+.win_start_tliicon {
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-top: 4px;
+	padding-bottom: 4px;
+}
+.win_start_tlitext {
+	position: absolute;
+	font-family: "Microsoft Sans Serif";
+	font-size: 10pt;
+	top: 8px;
+	cursor: default;
+}
+.win_start_divider {
+
+}
+.win_start_d1 {
+	width: 100%;
+	height: 1px;
+	background-color: #999999;
+}
+.win_start_d2 {
+	width: 100%;
+	height: 1px;
+	background-color: #FFFFFF;
+}

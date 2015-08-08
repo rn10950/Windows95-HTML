@@ -1,0 +1,106 @@
+/*
+
+WARNING: All CSS in this document will run ROOT LEVEL in the emulator.
+         You MUST prefix your selectors with win_wid_<NAME>_
+
+*/
+
+/*
+.win_titlebar,
+.win_titb_text,
+.win_titb_icon,
+#win_wid_run_container,
+#win_taskbar,
+#win_start,
+.noselect {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.win_underline {
+	text-decoration: underline;
+}
+*/
+
+/* THE RUN DIALOG */
+.win_wid_run_dialog {
+	/*left: 8px !important;
+	bottom: 8px !important;*/
+	position: absolute !important;	
+	border-image-slice: 4 4 4 4;
+	border-image-width: 4px 4px 4px 4px;
+	border-image-outset: 4px 4px 4px 4px;
+	border-image-repeat: stretch stretch;
+	border-image-source: url("images/border.png");
+	/*display: none;*/
+	position: absolute !important; /* must be important because jQuery UI will set it to rel and bad things will happen */
+	left: 8px;
+	bottom: 8px !important;
+}
+#win_wid_run_tgt {
+	width: 0px;
+	height: 0px;
+}
+#win_wid_run_container {
+	width: 100%;
+	height: 100%;
+	background-color: #C0C0C0;
+	cursor: default;
+}
+#win_wid_run_icondiv {
+	width: 32px;
+	height: 32px;
+	position: absolute;
+	top: 19px;
+	left: 12px;
+}
+#win_wid_run_text {
+	font-family: "Microsoft Sans Serif";
+	font-size: 8pt;
+	position: absolute;
+	left: 52px;
+	top: 9px;
+}
+#win_wid_run_opent {
+	position: absolute;
+	font-family: "Microsoft Sans Serif";
+	font-size: 8pt;
+	top: 59px;
+	left: 12px;
+}
+#win_wid_run_input {
+	position: absolute;
+	width: 272px;
+	right: 12px;
+	top: 66px;
+}
+#win_wid_run_obutton {
+	position: absolute;
+	width: 75px;
+	height: 23px;
+	right: 174px;
+	bottom: 14px;
+	font-family: "Microsoft Sans Serif";
+	font-size: 8pt;
+}
+.win_wid_run_cbutton {
+	position: absolute;
+	width: 75px;
+	height: 23px;
+	right: 93px;
+	bottom: 14px;
+	font-family: "Microsoft Sans Serif";
+	font-size: 8pt;
+}
+.win_wid_run_bbutton {
+	position: absolute;
+	height: 23px;
+	width: 75px;
+	right: 12px;
+	bottom: 14px;
+	font-family: "Microsoft Sans Serif";
+	font-size: 8pt;
+}

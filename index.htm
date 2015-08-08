@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<link rel="icon" type="image/png" href="icons/start.png">
+		<title>Windows 95 Emulator</title>
+		<link rel="stylesheet" type="text/css" href="win95.css">
+		<link rel="stylesheet" type="text/css" href="window.css">
+		<link rel="stylesheet" type="text/css" href="widgets.css">
+		<link rel="stylesheet" type="text/css" href="taskbar.css">
+		<link rel="stylesheet" type="text/css" href="start.css">
+		<link rel="stylesheet" type="text/css" href="jquery.css">
+		<link rel="stylesheet" type="text/css" href="bsod.css">
+		<script src="jquery.js"></script>
+		<script src="jquery-ui/jquery-ui.min.js"></script>
+		<script src="win95.js"></script>
+		<script src="widgets.js"></script>
+		<script src="clock.js"></script>
+	</head>
+	<body onload="updateClock(); setInterval('updateClock()', 1000 );
+	makeWindow('icons/start.png', 'Test', 'Test', true);">
+	<noscript>
+		<div class="bsod_container">
+			<div class="bsod_textcont">
+				<p class="bsod_title">Windows 95</p>
+				<p class="bsod_p">An error has occurred. To continue:</p>
+				<p class="bsod_p">Press F5 to restart your computer. If you do this,<br>
+				you will lose any unsaved information in all open applications.</p>
+				<p class="bsod_p">Error: JAVASCRIPT_NOT_ENABLED</p>
+				<p class="bsod_press">Press F5 to continue _</p>
+			</div>
+		</div>
+	</noscript>
+	<!-- Taskbar -->
+	<div id="win_taskbar">
+		<!-- Start Button -->
+		<div id="win_start_button">
+			<img src="icons/start.png" id="win_start_icon" alt="Windows Logo">
+			<span id="win_start_text">Start</span>
+		</div>
+		<!-- Taskbar Buttons -->
+		<div id="win_tb_placeholder">
+		
+		</div><!-- This is here to provide a target for the taskbar addition function -->
+		<!--<div class="win_tb_button win_tb_button_inactive" id="win_tb_win_1">
+			<div class="win_tb_icon">
+				<img src="icons/start.png">
+			</div>
+			<div class="win_tb_text">
+				Inactive Window
+			</div>
+		</div>
+		<div class="win_tb_button win_tb_button_active" id="win_tb_win_2">
+			<div class="win_tb_icon">
+				<img src="icons/start.png">
+			</div>
+			<div class="win_tb_text">
+				Active Window
+			</div>
+		</div>-->
+		
+		<!-- System Tray -->
+		<div id="win_systray">
+			<span id="win_clock">&nbsp;</span>
+		</div>
+	</div>
+	<!-- Start Menu -->
+	<div id="win_start">
+		<div id="win_start_banner">
+			<img src="icons/start_banner.png" alt="Windows 95" id="win_start_banner_img">
+		</div>
+		<!-- Start Menu Top-level List -->
+		<div id="win_start_tli_cont">
+			<!-- Programs -->
+			<div id="win_start_tli_programs" class="win_start_toplevel_item">
+				<img src="icons/programs24.png" alt="Programs" class="win_start_tliicon">
+				<span class="win_start_tlitext"><u>P</u>rograms</span>
+			</div>
+			<!-- Documents -->
+			<div id="win_start_tli_documents" class="win_start_toplevel_item">
+				<img src="icons/documents24.png" alt="Documents" class="win_start_tliicon">
+				<span class="win_start_tlitext"><u>D</u>ocuments</span>
+			</div>
+			<!-- Settings -->
+			<div id="win_start_tli_settings" class="win_start_toplevel_item">
+				<img src="icons/settings24.png" alt="Settings" class="win_start_tliicon">
+				<span class="win_start_tlitext"><u>S</u>ettings</span>
+			</div>
+			<!-- Find -->
+			<div id="win_start_tli_find" class="win_start_toplevel_item">
+				<img src="icons/find24.png" alt="Find" class="win_start_tliicon">
+				<span class="win_start_tlitext"><u>F</u>ind</span>
+			</div>
+			<!-- Help -->
+			<div id="win_start_tli_help" class="win_start_toplevel_item">
+				<img src="icons/help24.png" alt="Help" class="win_start_tliicon">
+				<span class="win_start_tlitext"><u>H</u>elp</span>
+			</div>
+			<!-- Run -->
+			<div id="win_start_tli_run" class="win_start_toplevel_item" onClick="run(true)">
+				<img src="icons/run24.png" alt="Run..." class="win_start_tliicon">
+				<span class="win_start_tlitext"><u>R</u>un...</span>
+			</div>
+			<!-- Divider -->
+			<div class="win_start_divider">
+				<div class="win_start_d1"></div>
+				<div class="win_start_d2"></div>
+			</div>
+			<!-- Shut Down -->
+			<div id="win_start_tli_shutdown" class="win_start_toplevel_item">
+				<img src="icons/shutdown24.png" alt="Shut Down..." class="win_start_tliicon">
+				<span class="win_start_tlitext">Sh<u>u</u>t Down...</span>
+			</div>
+		</div>
+	</div>
+	<div id="win_container">
+		<div id="win_placeholder"></div><!-- This is here to provide a target for the window creation function -->
+	
+	</div>
+	
+	</body>
+</html>
