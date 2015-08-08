@@ -26,6 +26,9 @@ var titbHeight = 18; // titlebar height in pixels
 $( document ).ready(function(){
 	/* Environment Setup Functions */
 	console.log("Window Creation Syntax: makeWindow('Icon URL', 'Window Title', 'iFrame URL', Taskbar Boolean, Resize Boolean, Width, Height);");
+	if(returnBrowserEngine() == "webkit") { // add webkit/blink only functions here
+		$('head').append('<link rel="stylesheet" type="text/css" href="webkit.css">');
+	}
 	// #win-container setup - height
 		var winHeight = $(window).height();
 		var wcHeight = winHeight - $( "#win_taskbar" ).height();
@@ -214,6 +217,27 @@ function makeWindow(icon, title, frameurl, taskbar, res, wid, hei) { /* IT WORKS
 		addTaskbar(window_set, 'icons/start.png', title);
 	}
 }
+// BROWSER DETECTION FUNCTION
+function returnBrowserEngine() {
+	var isOpera = !!window.opera || navigator.userAgent.indexOf(' OPR/') >= 0;
+	var isFirefox = typeof InstallTrigger !== 'undefined';
+	var isSafari = Object.prototype.toString.call(window.HTMLElement).indexOf('Constructor') > 0;
+	var isChrome = !!window.chrome && !isOpera;
+	var isIE = /*@cc_on!@*/false || !!document.documentMode;
+	if(isFirefox == true) {
+		return "gecko";
+	}
+	else if(isChrome == true || isOpera == true || isSafari == true) {
+		return "webkit";
+	}
+	else if(isIE == true) {
+		return "trident";
+	}
+	else {
+		return "unknown";
+	}
+}
+
 // TASKBAR ADDITION FUNCTION
 function addTaskbar(win_id, icon, title) {
 	// split button HTML into sections to allow concatenation

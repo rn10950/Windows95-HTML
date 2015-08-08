@@ -28,6 +28,7 @@
 	top: 8px;
 	height: 300px;
 	width: 300px;
+	padding: 0px;
 }
 .win_window_maximized {
 	width: 100% !important;

@@ -63,8 +63,8 @@
 	background-image: url("images/checkerboard.png");
 	border-bottom: 1px solid white;
 	border-right: 1px solid white;
-	border-top: 2px ridge black;
-	border-left: 2px ridge black;
+	border-top: 2px groove black;
+	border-left: 2px groove black;
 	font-weight: bold;
 }
 .win_tb_button_inactive,

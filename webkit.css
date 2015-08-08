@@ -1,1 +1,59 @@
-/* CSS file for WebKit/Blink compatibility, since the main CSS was written for Gecko */
+/* CSS file for WebKit/Blink compatibility, since the main CSS was written for Gecko (for future FxOS port) */
+
+/* GUI controls hacks */
+
+button {
+	border-bottom: 2px ridge #808080 !important;
+	border-right: 2px ridge #808080 !important;
+}
+
+button:active {
+	border-top: 2px groove #808080 !important;
+	border-left: 2px groove #808080 !important;
+	border-bottom: 2px ridge #808080 !important;
+	border-right: 2px ridge #808080 !important;
+}
+
+input[type="text"] {
+	border-top: 2px ridge #808080 !important;
+	border-left: 2px ridge #808080 !important;
+	
+}
+
+/* disables the input "halo" in Chrome */
+textarea, input, button { outline: none; }
+
+/* taskbar and start menu */
+
+.win_tb_button_active {
+	border-top: 2px groove #808080 !important;
+	border-left: 2px groove #808080 !important;
+}
+
+.win_tb_button_inactive,
+.win_tb_button_start {
+	border-top: 1px solid white !important;
+	border-left: 1px solid white !important;
+	border-bottom: 2px ridge #808080 !important;
+	border-right: 2px ridge #808080 !important;
+}
+
+#win_start_button {
+	border-bottom: 2px ridge #808080;
+	border-right: 2px ridge #808080;
+}
+
+.win_start_button_depressed {
+	border-top: 2px groove #808080 !important;
+	border-left: 2px groove #808080 !important;
+	border-bottom: 2px groove #FFFFFF !important;
+	border-right: 2px groove #FFFFFF !important;
+}
+
+#win_start {
+	border-right: 2px ridge #808080 !important;
+	border-bottom: 2px ridge #808080 !important;
+	border-top: 3px ridge white !important;
+	border-left: 3px ridge white !important;
+}
+ 

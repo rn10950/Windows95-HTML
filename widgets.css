@@ -39,6 +39,7 @@ WARNING: All CSS in this document will run ROOT LEVEL in the emulator.
 	position: absolute !important; /* must be important because jQuery UI will set it to rel and bad things will happen */
 	left: 8px;
 	bottom: 8px !important;
+	padding: 0px;
 }
 #win_wid_run_tgt {
 	width: 0px;

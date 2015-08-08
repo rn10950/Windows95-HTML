@@ -1,0 +1,35 @@
+button {
+	background-color: #c0c0c0;
+	border-top: 1px solid white;
+	border-left: 1px solid white;
+	border-bottom: 2px ridge black;
+	border-right: 2px ridge black;
+}
+
+button:active {
+	background-color: #c0c0c0;
+	border-top: 2px groove black;
+	border-left: 2px groove black;
+	border-bottom: 2px ridge black;
+	border-right: 2px ridge black;
+}
+
+input[type="text"] {
+	border-top: 2px ridge black;
+	border-left: 2px ridge black;
+	border-bottom: 2px groove #FFFFFF;
+	border-right: 2px groove #FFFFFF;
+	padding-left: 2px;
+	padding-right: 2px;
+	
+}
+
+input[type="text"]::selection {
+	background-color: #000080;
+	color: #FFFFFF;
+}
+
+input[type="text"]::-moz-selection {
+	background-color: #000080;
+	color: #FFFFFF;
+}
