@@ -32,7 +32,7 @@ function makeWidget(icon, title, html, taskbar, ques, wid, hei, cusClass) { /* I
 	var winHeight = hei + titbHeight;
 	// split window HTML into sections to allow concatenation
 	if(cusClass != false) { // custom class
-		var sec1 = '<div class="win_drag nores ' + cusClass + '" id="window_';
+		var sec1 = '<div class="win_drag win_widget nores ' + cusClass + '" id="window_';
 	} else { // no custom class
 		var sec1 = '<div class="win_window nores" id="window_';
 	}
@@ -75,7 +75,7 @@ function makeWidget(icon, title, html, taskbar, ques, wid, hei, cusClass) { /* I
 	$( titlebar_id ).removeClass('win_titb_inactive');
 	$( titlebar_id ).addClass('win_titb_active');
 	if(taskbar != false) {
-		addTaskbar(window_set, 'icons/start.png', title);
+		addTaskbar(window_set, icon, title);
 	}
 	//return window_set;
 }
@@ -90,7 +90,7 @@ function run(start) { // the run box
 		});
 	}
 	// add in the run.js include into <head>
-	var runJsLink = $("<script src='widgetjs/run.js'>");
+	var runJsLink = $("<script src='system/widgetjs/run.js'>");
     $("head").append(runJsLink);
 	//html code below
 	var sec1 = '<div class="win_wid_run_tgt"></div><div id="win_wid_run_container"> <div id="win_wid_run_icondiv"> <img src="images/run_icon.png"> ';
@@ -115,16 +115,20 @@ function run(start) { // the run box
 }
 function runOK() {
 	var boxVal = $( "#win_wid_run_input" ).val();
-	aliasRun(boxVal); // sends the input to the alias => JS function
+	aliasRun(boxVal); // sends the input to the alias => JS function (run.js)
+	runClose();
 }
 function runCancel() {
+	runClose();
+}
+function runBrowse() {
+	// this is just a placeholder for if/when we can browse for "executables"
+}
+function runClose() {
 	// get the grandparent of the placeholder div (aka: win_window)
 	var win_id = $( ".win_wid_run_tgt" ).parent().parent().attr('id');
 	// start refining the window_id retrieved above and execute windowClose()
 	var win_id_splt = win_id.split("_");
 	var win_num = win_id_splt[1];
 	windowClose(win_num);
-}
-function runBrowse() {
-	// this is just a placeholder for if/when we can browse for "executables"
 }

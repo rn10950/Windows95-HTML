@@ -238,6 +238,11 @@ function returnBrowserEngine() {
 	}
 }
 
+// CSS FILE ADDITION FUNCTION
+function addCSS(url) {
+	$('head').append('<link rel="stylesheet" type="text/css" href="' + url + '">');
+}
+
 // TASKBAR ADDITION FUNCTION
 function addTaskbar(win_id, icon, title) {
 	// split button HTML into sections to allow concatenation

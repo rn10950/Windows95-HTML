@@ -24,7 +24,15 @@ WARNING: All CSS in this document will run ROOT LEVEL in the emulator.
 	text-decoration: underline;
 }
 */
-
+.win_widget {
+	border-image-slice: 4 4 4 4;
+	border-image-width: 4px 4px 4px 4px;
+	border-image-outset: 4px 4px 4px 4px;
+	border-image-repeat: stretch stretch;
+	border-image-source: url("images/border.png");
+	/*display: none;*/
+	position: absolute !important; /* must be important because jQuery UI will set it to rel and bad things will happen */
+}
 /* THE RUN DIALOG */
 .win_wid_run_dialog {
 	/*left: 8px !important;

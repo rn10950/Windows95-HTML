@@ -90,6 +90,10 @@
 	width: 16px;
 	height: 16px;
 }
+.win_tb_icon > img {
+	width: 16px;
+	height: 16px;
+}
 .win_tb_text {
 	position: absolute;
 	top: 3px;

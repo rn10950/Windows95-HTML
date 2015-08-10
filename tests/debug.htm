@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Win95 Debug</title>
+		<link rel="stylesheet" type="text/css" href="../controls.css">
+		<link rel="stylesheet" type="text/css" href="../widgets.css">
+		<link rel="stylesheet" type="text/css" href="../system/debug/debug.css">
+		<script src="../jquery.js"></script>
+		<script>
+			var debugTest = true;
+		</script>
+		<script src="../system/debug/debug.js"></script>
+		<style>
+			#widget_cont {
+				position: absolute;
+				border: 2px solid red;
+				left: 100px;
+				top: 100px;
+				width: 500px;
+				height: 320px;
+			}
+		</style>
+	</head>
+	<body onload="winDebug()">
+		<h1>Windows 95 Emulator - Debug Dialog Test</h1>
+		<div id="widget_cont">
+		<!-- start widget html -->
+			<div class="win_wid_debug_tgt"></div>
+			<div id="win_wid_debug_container">
+				<p id="win_wid_debug_header">
+					This application contains some JavaScript tests and solutions for debugging and 
+					developing the Windows 95 Emulator.
+				</p>
+				<table id="win_wid_debug_table">
+					<!-- Row 1 -->
+					<tr class="win_wid_debug_table_row">
+						<td class="win_wid_debug_table_cell">
+							<div id="win_wid_debug_cell-1">
+								<span class="win_wid_debug_celltext"></span>
+								<button class="win_wid_debug_button">Execute</button>
+							</div>
+						</td>
+						<td class="win_wid_debug_table_cell">
+							<div id="win_wid_debug_cell-2">
+								<span class="win_wid_debug_celltext"></span>
+								<button class="win_wid_debug_button">Execute</button>
+							</div>
+						</td>
+					</tr>
+					<!-- Row 2 -->
+					<tr class="win_wid_debug_table_row">
+						<td class="win_wid_debug_table_cell">
+							<div id="win_wid_debug_cell-3">
+								<span class="win_wid_debug_celltext"></span>
+								<button class="win_wid_debug_button">Execute</button>
+							</div>
+						</td>
+						<td class="win_wid_debug_table_cell">
+							<div id="win_wid_debug_cell-4">
+								<span class="win_wid_debug_celltext"></span>
+								<button class="win_wid_debug_button">Execute</button>
+							</div>
+						</td>
+					</tr>
+					<!-- Row 3 -->
+					<tr class="win_wid_debug_table_row">
+						<td class="win_wid_debug_table_cell">
+							<div id="win_wid_debug_cell-5">
+								<span class="win_wid_debug_celltext"></span>
+								<button class="win_wid_debug_button">Execute</button>
+							</div>
+						</td>
+						<td class="win_wid_debug_table_cell">
+							<div id="win_wid_debug_cell-6">
+								<span class="win_wid_debug_celltext"></span>
+								<button class="win_wid_debug_button">Execute</button>
+							</div>
+						</td>
+					</tr>
+					<!-- Row 4 -->
+					<tr class="win_wid_debug_table_row">
+						<td class="win_wid_debug_table_cell">
+							<div id="win_wid_debug_cell-7">
+								<span class="win_wid_debug_celltext"></span>
+								<button class="win_wid_debug_button">Execute</button>
+							</div>
+						</td>
+						<td class="win_wid_debug_table_cell">
+							<div id="win_wid_debug_cell-8">
+								<span class="win_wid_debug_celltext"></span>
+								<button class="win_wid_debug_button">Execute</button>
+							</div>
+						</td>
+					</tr>
+					<!-- Row 5 -->
+					<tr class="win_wid_debug_table_row">
+						<td class="win_wid_debug_table_cell">
+							<div id="win_wid_debug_cell-9">
+								<span class="win_wid_debug_celltext"></span>
+								<button class="win_wid_debug_button">Execute</button>
+							</div>
+						</td>
+						<td class="win_wid_debug_table_cell">
+							<div id="win_wid_debug_cell-10">
+								<span class="win_wid_debug_celltext"></span>
+								<button class="win_wid_debug_button">Execute</button>
+							</div>
+						</td>
+					</tr>
+				</table>
+				<span id="win_wid_debug_grouptitle">Debug Applications</span>
+				<form>
+					<button class="win_wid_debug_ok" onClick="debugClose()">OK</button>
+				</form>
+			</div>
+		<!-- end run html -->			
+		</div>
+	</body>
+</html>

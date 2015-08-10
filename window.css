@@ -58,6 +58,10 @@
 	width: 16px;
 	height: 16px;
 }
+.win_titb_icon > img {
+	width: 16px;
+	height: 16px;
+}
 .win_titb_text {
 	position: absolute;
 	font-family: "Microsoft Sans Serif";
