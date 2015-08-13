@@ -215,7 +215,8 @@ function makeWindow(icon, title, frameurl, taskbar, res, wid, hei) { /* IT WORKS
 	$( titlebar_id ).removeClass('win_titb_inactive');
 	$( titlebar_id ).addClass('win_titb_active');
 	if(taskbar != false) {
-		addTaskbar(window_set, 'icons/start.png', title);
+		//addTaskbar(window_set, 'icons/start.png', title);
+		addTaskbar(window_set, icon, title);
 	}
 }
 // BROWSER DETECTION FUNCTION
