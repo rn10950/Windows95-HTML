@@ -21,6 +21,7 @@ BUGS TO BE FIXED:
 var window_set = 0; // must be set to zero for proper function of the window generator
 var debug = true; // debug variable, set to true for console output
 var titbHeight = 18; // titlebar height in pixels
+var defaultImage = "icons/default16.png"; // default taskbar and titlebar icon (16 x 16)
 
 // AUTORUN FUNCTION (Classes and Start Menu)
 $( document ).ready(function(){
@@ -186,7 +187,7 @@ function makeWindow(icon, title, frameurl, taskbar, res, wid, hei) { /* IT WORKS
 		var sec3 = '><div class="win_titlebar win_titb_active nores" id="win_titb_';
 	}
 	var sec4 = '"><div class="win_titb_icon"><img src="';
-	var sec5 = '"></div><div class="win_titb_text">';
+	var sec5 = '" onerror="this.src = defaultImage"></div><div class="win_titb_text">';
 	var sec6 = '</div><div class="win_titb_controls" id="win_windc_'
 	// determine Window control type
     if(res != false && taskbar != false) { // all buttons
@@ -245,13 +246,25 @@ function addCSS(url) {
 
 // TASKBAR ADDITION FUNCTION
 function addTaskbar(win_id, icon, title) {
-	// split button HTML into sections to allow concatenation
-	var sec1 = '<div class="win_tb_button" id="win_tb_win_';
-	var sec2 = '"><div class="win_tb_icon"><img src="';
-	var sec3 = '"></div><div class="win_tb_text">';
-	var sec4 = '</div></div>';
-	// merge stings into one variable for insertion into DOM
-	var insertHTML = sec1 + win_id + sec2 + icon + sec3 + title + sec4;
+	// icon detection
+	if(icon != false) {
+		// icon present
+		var sec1 = '<div class="win_tb_button" id="win_tb_win_';
+		var sec2 = '"><div class="win_tb_icon"><img src="';
+		var sec3 = '" onerror="this.src = defaultImage"></div><div class="win_tb_text">';
+		var sec4 = '</div></div>';
+		// merge stings into one variable for insertion into DOM
+		var insertHTML = sec1 + win_id + sec2 + icon + sec3 + title + sec4;
+	} else {
+		// icon not present
+		var placeholder = "images/placeholder.png";
+		var sec1 = '<div class="win_tb_button" id="win_tb_win_';
+		var sec2 = '"><div class="win_tb_icon_noicon"><img src="';
+		var sec3 = '"></div><div class="win_tb_text_noicon">';
+		var sec4 = '</div></div>';
+		// merge stings into one variable for insertion into DOM
+		var insertHTML = sec1 + win_id + sec2 + placeholder + sec3 + title + sec4;
+	}	
 	//insert into DOM
 	$( '#win_tb_placeholder' ).append( insertHTML ); // change positioning to account for id = 1
 	// left formula is l=(165*(n-1))+60

@@ -23,10 +23,10 @@ fix window spawn positioning bug and get the 'open' and 'cancel' buttons to work
 */
 
 $( document ).ready(function(){
-	console.log("Widget Creation Syntax: makeWidget('Icon URL/False', 'Window Title', 'HTML', Taskbar Boolean, Question Boolean, Width, Height, 'Custom Class');");
+	console.log("Widget Creation Syntax: makeWidget('Icon URL/False', 'Window Title', 'HTML', Taskbar Boolean, Minimize Boolean, Question Boolean, Width, Height, 'Custom Class');");
 });
 
-function makeWidget(icon, title, html, taskbar, ques, wid, hei, cusClass) { /* IT WORKS!!! What's the catch? */
+function makeWidget(icon, title, html, taskbar, min, ques, wid, hei, cusClass) { /* IT WORKS!!! What's the catch? */
 	window_set++;
 	// Add titlebar height to window height
 	var winHeight = hei + titbHeight;
@@ -43,14 +43,19 @@ function makeWidget(icon, title, html, taskbar, ques, wid, hei, cusClass) { /* I
 		var sec5 = '<div class="win_titb_text win_titb_text_noicon">';
 	} else { // icon present
 		var sec4 = '"><div class="win_titb_icon"><img src="';
-		var sec5 = '"></div><div class="win_titb_text">';
+		var sec5 = '" onerror="this.src = defaultImage"></div><div class="win_titb_text">';
 	}
 	var sec6 = '</div><div class="win_titb_controls" id="win_windc_'
 	// determine Window control type
-    if(ques != true) { // No Question Mark
-		var sec7 = '"><img src="win_controls/close.png" class="win_titb_close" id"_"></div></div>';
-	} else { // Question Mark Present
-		var sec7 = '"><img src="win_controls/question.png" class="win_titb_question" id"_"><img src="win_controls/close.png" class="win_titb_close" id"_"></div></div>';
+	if(min == true) {
+		// minimize shown
+		var sec7 = '"><img src="win_controls/min.png" class="win_titb_min" id"_"><img src="win_controls/max_disabled.png" class="win_titb_max_dis" id"_"><img src="win_controls/close.png" class="win_titb_close" id"_"></div></div>';
+	} else {
+		if(ques != true) { // No Question Mark
+			var sec7 = '"><img src="win_controls/close.png" class="win_titb_close" id"_"></div></div>';
+		} else { // Question Mark Present
+			var sec7 = '"><img src="win_controls/question.png" class="win_titb_question" id"_"><img src="win_controls/close.png" class="win_titb_close" id"_"></div></div>';
+		}
 	}
 	// merge strings into one variable for insertion into DOM
 	if(icon == false) { // prevents "false" boolean from being inserted into page
@@ -101,7 +106,7 @@ function run(start) { // the run box
 	var sec6 = 'Browse...</button> </div>';
 	var widgetHTML = sec1 + sec2 + sec3 + sec4 + sec5 + sec6; // combine html code
 	// time to make the widgets...
-	makeWidget(false, 'Run', widgetHTML, false, false, 340, 140, 'win_wid_run_dialog');
+	makeWidget(false, 'Run', widgetHTML, false, false, false, 340, 140, 'win_wid_run_dialog');
 	$( '#win_wid_run_input' ).focus();
 	// set "open" button active and inactive based on input value
 	$( '#win_wid_run_input' ).on('input', function() {
@@ -127,6 +132,24 @@ function runBrowse() {
 function runClose() {
 	// get the grandparent of the placeholder div (aka: win_window)
 	var win_id = $( ".win_wid_run_tgt" ).parent().parent().attr('id');
+	// start refining the window_id retrieved above and execute windowClose()
+	var win_id_splt = win_id.split("_");
+	var win_num = win_id_splt[1];
+	windowClose(win_num);
+}
+/* WINVER DIALOG FUNCTION */
+function winverStart() {
+	var html1 = '<div class="win_wid_winver_tgt"></div><div id="win_wid_winver_container">';
+	var html2 = '<span id="win_wid_winver_name" class="win_wid_winver_text">Windows 95</span>';
+	var html3 = '<img id="win_wid_winver_icon" src="images/winver_logo.png">';
+	var html4 = '<span id="win_wid_winver_copy" class="win_wid_winver_text">Copyright &copy; 1981-1995, Microsoft Corp.</span>';
+	var html5 = '<button id="win_wid_winver_ok" onclick="closeWinver()">OK</button></div>';
+	var winverHTML = html1 + html2 + html3 + html4 + html5;
+	makeWidget(false, "Windows", winverHTML, true, false, false, 300, 130, "win_wid_winver_dialog");
+}
+function closeWinver() {
+	// get the grandparent of the placeholder div (aka: win_window)
+	var win_id = $( ".win_wid_winver_tgt" ).parent().parent().attr('id');
 	// start refining the window_id retrieved above and execute windowClose()
 	var win_id_splt = win_id.split("_");
 	var win_num = win_id_splt[1];

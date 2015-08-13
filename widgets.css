@@ -113,3 +113,35 @@ WARNING: All CSS in this document will run ROOT LEVEL in the emulator.
 	font-family: "Microsoft Sans Serif";
 	font-size: 8pt;
 }
+/* WINVER DIALOG */
+#win_wid_winver_container {
+	width: 100%;
+	height: 100%;
+	background-color: #C0C0C0;
+	cursor: default;
+}
+.win_wid_winver_text {
+	position: absolute;
+	font-family: "Microsoft Sans Serif";
+	font-size: 8pt;
+	width: 100%;
+	text-align: center;
+}
+#win_wid_winver_name {
+	top: 11px;
+}
+#win_wid_winver_icon {
+	position: absolute;
+	left: 141px;
+	top: 36px;
+}
+#win_wid_winver_copy {
+	top: 79px;
+}
+#win_wid_winver_ok {
+	position: absolute;
+	width: 48px;
+	height: 26px;
+	bottom: 8px;
+	left: 126px;
+}

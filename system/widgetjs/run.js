@@ -9,6 +9,8 @@ function aliasRun(rawCommand) {
 		var debugJsLink = $("<script src='system/debug/debug.js'>");
 		$("head").append(debugJsLink);
 		winDebug();
+	} else if (command == "winver") {
+		winverStart();
 	} else if (command == false) {
 	
 	} else {

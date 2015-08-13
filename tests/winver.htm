@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Win95 WinVer</title>
+		<base href="../">
+		<link rel="stylesheet" type="text/css" href="controls.css">
+		<link rel="stylesheet" type="text/css" href="widgets.css">
+		<style>
+			#widget_cont {
+				position: absolute;
+				border: 2px solid red;
+				left: 100px;
+				top: 100px;
+				width: 300px;
+				height: 130px;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>Windows 95 Emulator - WinVer Dialog Test</h1>
+		<div id="widget_cont">
+		<!-- start widget html -->
+			<div class="win_wid_winver_tgt"></div>
+			<div id="win_wid_winver_container">
+				<span id="win_wid_winver_name" class="win_wid_winver_text">Windows 95</span>
+				<img id="win_wid_winver_icon" src="images/winver_logo.png">
+				<span id="win_wid_winver_copy" class="win_wid_winver_text">Copyright &copy; 1981-1995, Microsoft Corp.</span>
+				<button id="win_wid_winver_ok" onclick="closeWinver()">OK</button>
+			</div>
+		<!-- end widget html -->			
+		</div>
+	</body>
+</html>
