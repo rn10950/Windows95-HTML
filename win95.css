@@ -12,10 +12,23 @@ body, html {
 	z-index: 800;
 	overflow: hidden;
 }
+#win_overlay {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	padding: 0px;
+	overflow: hidden;
+	z-index: 1000000;
+	background-image: url('images/overlay.png');
+	display: none;
+}
 .win_titlebar,
 .win_titb_text,
 .win_titb_icon,
 #win_wid_run_container,
+#win_wid_debug_container,
+#win_wid_winver_container,
+.win_wid_container,
 #win_taskbar,
 #win_start,
 .noselect {
