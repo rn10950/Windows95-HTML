@@ -229,6 +229,7 @@ function makeWindow(icon, title, frameurl, taskbar, res, wid, hei) { /* IT WORKS
 		//addTaskbar(window_set, 'icons/start.png', title);
 		addTaskbar(window_set, icon, title);
 	}
+	windowCenter(window_set);
 }
 // BROWSER DETECTION FUNCTION
 function returnBrowserEngine() {
@@ -368,4 +369,19 @@ function deactivateAll() {
 	$( '.win_titlebar').addClass( 'win_titb_inactive' );
 	$( '.win_tb_button' ).removeClass( 'win_tb_button_active' );
 	$( '.win_tb_button' ).addClass( 'win_tb_button_inactive' );
+}
+
+// WINDOW CENTERING FUNCTION
+function windowCenter(num) {
+	var winID = "#window_" + num;
+	var winHeight = $( winID ).height();
+	var winWidth = $( winID ).width();
+	var viewHeight = $( "#win_container" ).height();
+	var viewWidth = $( "#win_container" ).width();
+	var heightDiff = viewHeight - winHeight;
+	var widthDiff = viewWidth - winWidth;
+	var topHeight = heightDiff / 2;
+	var leftWidth = widthDiff / 2;
+	var winStyle = "top: " + topHeight + "px;left: " + leftWidth + "px;";
+	$( winID ).attr("style", winStyle);
 }
