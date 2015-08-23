@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Win95 Error Dialog</title>
+		<base href="../">
+		<link rel="stylesheet" type="text/css" href="controls.css">
+		<link rel="stylesheet" type="text/css" href="widgets.css">
+		<style>
+			#widget_cont {
+				position: absolute;
+				border: 2px solid red;
+				left: 100px;
+				top: 100px;
+				width: 340px;
+				height: 140px;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>Windows 95 Emulator - Error Dialog Test</h1>
+		<div id="widget_cont">
+		<!-- start widget html -->
+			<div class="win_wid_error_tgt"></div>
+			<div class="win_wid_error_container">
+				<div class="win_wid_error_concont">
+					<div class="win_wid_error_icondiv">
+						<img src="icons/dialogs/error.png" class="win_wid_error_icon">
+					</div>
+					<p class="win_wid_error_text">
+						Error Text.
+					</p>
+				</div>
+				<p class="win_wid_error_buttoncont">
+					<button class="win_wid_error_close">OK</button>
+				</p>
+			</div>
+		<!-- end widget html -->			
+		</div>
+	</body>
+</html>
