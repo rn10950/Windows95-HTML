@@ -383,5 +383,8 @@ function windowCenter(num) {
 	var topHeight = heightDiff / 2;
 	var leftWidth = widthDiff / 2;
 	var winStyle = "top: " + topHeight + "px;left: " + leftWidth + "px;";
-	$( winID ).attr("style", winStyle);
+	//$( winID ).attr("style", winStyle);
+	$( winID ).each(function() {
+		$(this).attr("style", $(this).attr("style") + winStyle);
+	});
 }

@@ -145,3 +145,41 @@ WARNING: All CSS in this document will run ROOT LEVEL in the emulator.
 	bottom: 8px;
 	left: 126px;
 }
+/* error dialog */
+.win_wid_error_container {
+	width: 100%;
+	height: 100%;
+	background-color: #C0C0C0;
+	cursor: default;
+	position: absolute;
+}
+.win_wid_error_contcon {
+	position: relative;
+	width: 90%;
+	height: 100%;
+}
+.win_wid_error_icondiv {
+	
+}
+.win_wid_error_icon {
+	position: absolute;
+	left: 10px;
+	top: 20px;
+	width: 32px;
+	height: 32px;
+}
+.win_wid_error_text {
+	height: 100%;
+	padding-left: 62px;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	font-family: "Microsoft Sans Serif";
+	font-size: 8pt;
+	word-wrap: normal;
+}
+.win_wid_error_buttoncont {
+	position: absolute;
+	bottom: 0px;
+	width: 100%;
+	text-align: center;
+}

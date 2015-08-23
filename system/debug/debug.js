@@ -33,7 +33,7 @@ function winDebug() {
 		code11 + code12 + code13 + code14 + code15 + code16 + code17 + code18 + code19 + code20 + code21 + code22;
 		// add css + spawn window
 		addCSS("system/debug/debug.css");
-		makeWidget("system/debug/icon.png", "Windows Debug", debugHTML, true, true, false, 500, 320, "win_wid_debug_window");
+		makeWidget("system/debug/icon.png", "Windows Debug", debugHTML, true, true, false, true, 500, 320, "win_wid_debug_window");
 	 }
 	 // test 1
 	if(typeof test1 !== 'undefined') {

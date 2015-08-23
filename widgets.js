@@ -23,10 +23,10 @@ fix window spawn positioning bug and get the 'open' and 'cancel' buttons to work
 */
 
 $( document ).ready(function(){
-	console.log("Widget Creation Syntax: makeWidget('Icon URL/False', 'Window Title', 'HTML', Taskbar Boolean, Minimize Boolean, Question Boolean, Width, Height, 'Custom Class');");
+	console.log("Widget Creation Syntax: makeWidget('Icon URL/False', 'Window Title', 'HTML', Taskbar Boolean, Minimize Boolean, Question Boolean, Center Boolean, Width, Height, 'Custom Class');");
 });
 
-function makeWidget(icon, title, html, taskbar, min, ques, wid, hei, cusClass) { /* IT WORKS!!! What's the catch? */
+function makeWidget(icon, title, html, taskbar, min, ques, center, wid, hei, cusClass) { /* IT WORKS!!! What's the catch? */
 	window_set++;
 	// Add titlebar height to window height
 	var winHeight = hei + titbHeight;
@@ -83,6 +83,9 @@ function makeWidget(icon, title, html, taskbar, min, ques, wid, hei, cusClass) {
 		addTaskbar(window_set, icon, title);
 	}
 	//return window_set;
+	if(center == true) {
+		windowCenter(window_set);
+	}
 }
 
 function run(start) { // the run box
@@ -106,7 +109,7 @@ function run(start) { // the run box
 	var sec6 = 'Browse...</button> </div>';
 	var widgetHTML = sec1 + sec2 + sec3 + sec4 + sec5 + sec6; // combine html code
 	// time to make the widgets...
-	makeWidget(false, 'Run', widgetHTML, false, false, false, 340, 140, 'win_wid_run_dialog');
+	makeWidget(false, 'Run', widgetHTML, false, false, false, false, 340, 140, 'win_wid_run_dialog');
 	$( '#win_wid_run_input' ).focus();
 	// set "open" button active and inactive based on input value
 	$( '#win_wid_run_input' ).on('input', function() {
@@ -145,7 +148,7 @@ function winverStart() {
 	var html4 = '<span id="win_wid_winver_copy" class="win_wid_winver_text">Copyright &copy; 1981-1995, Microsoft Corp.</span>';
 	var html5 = '<button id="win_wid_winver_ok" onclick="closeWinver()">OK</button></div>';
 	var winverHTML = html1 + html2 + html3 + html4 + html5;
-	makeWidget(false, "Windows", winverHTML, true, false, false, 300, 130, "win_wid_winver_dialog");
+	makeWidget(false, "Windows", winverHTML, true, false, false, true, 300, 130, "win_wid_winver_dialog");
 }
 function closeWinver() {
 	// get the grandparent of the placeholder div (aka: win_window)
@@ -154,4 +157,20 @@ function closeWinver() {
 	var win_id_splt = win_id.split("_");
 	var win_num = win_id_splt[1];
 	windowClose(win_num);
+}
+
+// ERROR MESSAGE FUNCTION
+function windowsError(icon, title, msg) {
+	if (icon == 1) {
+		var iconURL = "icons/dialogs/error.png";
+	}
+	var sec1 = '<div class="win_wid_error_tgt"></div><div class="win_wid_error_container">';
+	var sec2 = '<div class="win_wid_error_concont"><div class="win_wid_error_icondiv"><img src="';
+	// icon img url
+	var sec3 = '" class="win_wid_error_icon"></div><p class="win_wid_error_text">';
+	// message text
+	var sec4 = '</p></div><p class="win_wid_error_buttoncont">';
+	var sec5 = '<button class="win_wid_error_close">OK</button></p></div>';
+	var errorHTML = sec1 + sec2 + iconURL + sec3 + msg + sec4 + sec5;
+	makeWidget(false, title, errorHTML, false, false, false, true, 340, 140, "win_wid_error_dialog");
 }
