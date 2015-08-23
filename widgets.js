@@ -170,7 +170,14 @@ function windowsError(icon, title, msg) {
 	var sec3 = '" class="win_wid_error_icon"></div><p class="win_wid_error_text">';
 	// message text
 	var sec4 = '</p></div><p class="win_wid_error_buttoncont">';
-	var sec5 = '<button class="win_wid_error_close">OK</button></p></div>';
+	var sec5 = '<button class="win_wid_error_close" onclick="errorClose()">OK</button></p></div>';
 	var errorHTML = sec1 + sec2 + iconURL + sec3 + msg + sec4 + sec5;
 	makeWidget(false, title, errorHTML, false, false, false, true, 340, 140, "win_wid_error_dialog");
+}
+function errorClose() {
+	var win_id = $( ".win_wid_error_tgt" ).parent().parent().attr('id');
+	// start refining the window_id retrieved above and execute windowClose()
+	var win_id_splt = win_id.split("_");
+	var win_num = win_id_splt[1];
+	windowClose(win_num);
 }
