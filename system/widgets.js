@@ -49,12 +49,12 @@ function makeWidget(icon, title, html, taskbar, min, ques, center, wid, hei, cus
 	// determine Window control type
 	if(min == true) {
 		// minimize shown
-		var sec7 = '"><img src="win_controls/min.png" class="win_titb_min" id"_"><img src="win_controls/max_disabled.png" class="win_titb_max_dis" id"_"><img src="win_controls/close.png" class="win_titb_close" id"_"></div></div>';
+		var sec7 = '"><img src="system/win_controls/min.png" class="win_titb_min" id"_"><img src="system/win_controls/max_disabled.png" class="win_titb_max_dis" id"_"><img src="system/win_controls/close.png" class="win_titb_close" id"_"></div></div>';
 	} else {
 		if(ques != true) { // No Question Mark
-			var sec7 = '"><img src="win_controls/close.png" class="win_titb_close" id"_"></div></div>';
+			var sec7 = '"><img src="system/win_controls/close.png" class="win_titb_close" id"_"></div></div>';
 		} else { // Question Mark Present
-			var sec7 = '"><img src="win_controls/question.png" class="win_titb_question" id"_"><img src="win_controls/close.png" class="win_titb_close" id"_"></div></div>';
+			var sec7 = '"><img src="system/win_controls/question.png" class="win_titb_question" id"_"><img src="system/win_controls/close.png" class="win_titb_close" id"_"></div></div>';
 		}
 	}
 	// merge strings into one variable for insertion into DOM
@@ -101,7 +101,7 @@ function run(start) { // the run box
 	var runJsLink = $("<script src='system/widgetjs/run.js'>");
     $("head").append(runJsLink);
 	//html code below
-	var sec1 = '<div class="win_wid_run_tgt"></div><div id="win_wid_run_container"> <div id="win_wid_run_icondiv"> <img src="images/run_icon.png"> ';
+	var sec1 = '<div class="win_wid_run_tgt"></div><div id="win_wid_run_container"> <div id="win_wid_run_icondiv"> <img src="system/images/run_icon.png"> ';
 	var sec2 = '</div> <p id="win_wid_run_text"> Type the name of a program, folder, or document, and<br> ';
 	var sec3 = 'Windows will open it for you. </p> <p id="win_wid_run_opent"> <span class="win_underline">O';
 	var sec4 = '</span>pen: </p> <input type="text" id="win_wid_run_input" autofocus> <button id="win_wid_run_obutton" onClick="runOK()" disabled autofocus>';
@@ -144,7 +144,7 @@ function runClose() {
 function winverStart() {
 	var html1 = '<div class="win_wid_winver_tgt"></div><div id="win_wid_winver_container">';
 	var html2 = '<span id="win_wid_winver_name" class="win_wid_winver_text">Windows 95</span>';
-	var html3 = '<img id="win_wid_winver_icon" src="images/winver_logo.png">';
+	var html3 = '<img id="win_wid_winver_icon" src="system/images/winver_logo.png">';
 	var html4 = '<span id="win_wid_winver_copy" class="win_wid_winver_text">Copyright &copy; 1981-1995, Microsoft Corp.</span>';
 	var html5 = '<button id="win_wid_winver_ok" onclick="closeWinver()">OK</button></div>';
 	var winverHTML = html1 + html2 + html3 + html4 + html5;

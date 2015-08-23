@@ -1,12 +1,4 @@
 /*
-
-TODO: 5/17-18/15
-=============
-
-make the maximize css class work and get windowMax(id) to work
-
-make a minimize css class and get windowMin(id) to work
-
 	--- NOTES ---
 
 - the window dragging class is now 'win_drag' and not 'win_window'
@@ -28,7 +20,7 @@ $( document ).ready(function(){
 	/* Environment Setup Functions */
 	console.log("Window Creation Syntax: makeWindow('Icon URL', 'Window Title', 'iFrame URL', Taskbar Boolean, Resize Boolean, Width, Height);");
 	if(returnBrowserEngine() == "webkit") { // add webkit/blink only functions here
-		$('head').append('<link rel="stylesheet" type="text/css" href="webkit.css">');
+		$('head').append('<link rel="stylesheet" type="text/css" href="system/webkit.css">');
 	}
 	// #win-container setup - height
 		var winHeight = $(window).height();
@@ -57,9 +49,9 @@ $( document ).ready(function(){
 	/* minimize, maximize, close buttons */
 	// MINIMIZE BUTTON
     $( "#win_container" ).on('mousedown','.win_titb_min', function() {
-		$( this ).attr("src", "win_controls/min_dep.png");
+		$( this ).attr("src", "system/win_controls/min_dep.png");
         $( this ).mouseup(function() {
-            $( this ).attr("src", "win_controls/min.png");
+            $( this ).attr("src", "system/win_controls/min.png");
 			var windc_id = $( this ).parent().attr("id");
 			var windc_id_splt = windc_id.split("_");
 			var win_id = windc_id_splt[2];
@@ -71,9 +63,9 @@ $( document ).ready(function(){
 	});
 	// MAXIMIZE BUTTON
     $( "#win_container" ).on('mousedown','.win_titb_max', function() {
-		$( this ).attr("src", "win_controls/max_dep.png");
+		$( this ).attr("src", "system/win_controls/max_dep.png");
         $( this ).mouseup(function() {
-            $( this ).attr("src", "win_controls/max.png");
+            $( this ).attr("src", "system/win_controls/max.png");
 			var windc_id = $( this ).parent().attr("id");
 			var windc_id_splt = windc_id.split("_");
 			var win_id = windc_id_splt[2];
@@ -84,9 +76,9 @@ $( document ).ready(function(){
 	});
 	// CLOSE BUTTON
     $( "#win_container" ).on('mousedown','.win_titb_close', function() {
-		$( this ).attr("src", "win_controls/close_dep.png");
+		$( this ).attr("src", "system/win_controls/close_dep.png");
         $( this ).mouseup(function() {
-            $( this ).attr("src", "win_controls/close.png");
+            $( this ).attr("src", "system/win_controls/close.png");
 			var windc_id = $( this ).parent().attr("id");
 			//alert(windc_id);
 			var windc_id_splt = windc_id.split("_");
@@ -202,13 +194,13 @@ function makeWindow(icon, title, frameurl, taskbar, res, wid, hei) { /* IT WORKS
 	var sec6 = '</div><div class="win_titb_controls" id="win_windc_'
 	// determine Window control type
     if(res != false && taskbar != false) { // all buttons
-		var sec7 = '"><img src="win_controls/min.png" class="win_titb_min" id"_"><img src="win_controls/max.png" class="win_titb_max" id"_"><img src="win_controls/close.png" class="win_titb_close" id"_"></div></div></div>';
+		var sec7 = '"><img src="system/win_controls/min.png" class="win_titb_min" id"_"><img src="system/win_controls/max.png" class="win_titb_max" id"_"><img src="system/win_controls/close.png" class="win_titb_close" id"_"></div></div></div>';
 	} else if(res == false && taskbar == false) { // only close
-		var sec7 = '"><img src="win_controls/close.png" class="win_titb_close" id"_"></div></div></div>';
+		var sec7 = '"><img src="system/win_controls/close.png" class="win_titb_close" id"_"></div></div></div>';
 	} else if (res == false) { // max. shaded out
-		var sec7 = '"><img src="win_controls/min.png" class="win_titb_min" id"_"><img src="win_controls/max_disabled.png" class="win_titb_max_dis" id"_"><img src="win_controls/close.png" class="win_titb_close" id"_"></div></div></div>';
+		var sec7 = '"><img src="system/win_controls/min.png" class="win_titb_min" id"_"><img src="system/win_controls/max_disabled.png" class="win_titb_max_dis" id"_"><img src="system/win_controls/close.png" class="win_titb_close" id"_"></div></div></div>';
 	} else if (taskbar == false) { // no minimize button
-		var sec7 = '"><img src="win_controls/max.png" class="win_titb_max" id"_"><img src="win_controls/close.png" class="win_titb_close" id"_"></div></div></div>';
+		var sec7 = '"><img src="system/win_controls/max.png" class="win_titb_max" id"_"><img src="system/win_controls/close.png" class="win_titb_close" id"_"></div></div></div>';
 	}
 	// merge strings into one variable for insertion into DOM
 	var insertHTML = sec1 + window_set + sec2 + window_set + sec3 + window_set + sec4 + icon + sec5 + title + sec6 + window_set + sec7;
@@ -270,7 +262,7 @@ function addTaskbar(win_id, icon, title) {
 		var insertHTML = sec1 + win_id + sec2 + icon + sec3 + title + sec4;
 	} else {
 		// icon not present
-		var placeholder = "images/placeholder.png";
+		var placeholder = "system/images/placeholder.png";
 		var sec1 = '<div class="win_tb_button" id="win_tb_win_';
 		var sec2 = '"><div class="win_tb_icon_noicon"><img src="';
 		var sec3 = '"></div><div class="win_tb_text_noicon">';
