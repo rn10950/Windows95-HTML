@@ -202,11 +202,19 @@ function makeWindow(icon, title, frameurl, taskbar, res, wid, hei) { /* IT WORKS
 	} else if (taskbar == false) { // no minimize button
 		var sec7 = '"><img src="system/win_controls/max.png" class="win_titb_max" id"_"><img src="system/win_controls/close.png" class="win_titb_close" id"_"></div></div></div>';
 	}
+	//var sec8 = '<iframe class="win_window_iframe" src="' + frameurl + '" id="win_window_' + window_set + '_iframe"></div>';
 	// merge strings into one variable for insertion into DOM
 	var insertHTML = sec1 + window_set + sec2 + window_set + sec3 + window_set + sec4 + icon + sec5 + title + sec6 + window_set + sec7;
+	console.log(insertHTML);
 	$( '#win_placeholder' ).after( insertHTML );
 	var window_id = '#window_' + window_set; // gets the ID of current window
 	var titlebar_id = '#win_titb_' + window_set; // window id in titlebar format
+	// insert iframe into window
+	$(document.createElement('iframe')).attr({
+		id: "win_window_" + window_set + "_iframe",
+		class: "win_window_iframe",
+		src: frameurl
+	}).appendTo( window_id );
 	// window active/inactive classes
 	$( '.win_window').removeClass( 'win_window_active' );
 	$( '.win_window').addClass( 'win_window_inactive' );

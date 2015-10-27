@@ -110,3 +110,8 @@
 	bottom: 0px;
 	left: 0px;
 }
+.win_window_iframe {
+	width: 100%;
+	height: calc(100% - 18px);
+	border: none;	
+}
